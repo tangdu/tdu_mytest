@@ -1,0 +1,91 @@
+/*
+*${desc}
+*@authod extjs make by tdu
+*@time ${datetime("yyyy-M-d")}
+*/
+
+Ext.ns("${package}.grid");
+
+${package}.grid.${className}Grid=Ext.extend(Ext.grid.GridPanel,{
+	autoWidth : true,
+	enableColumnMove : false,
+	enableHdMenu : true,
+	loadMask:true,
+	columnLines:true,
+	viewConfig:{
+		forceFit:false,
+		stripeRows : true,
+		scrollOffset:0
+	},
+	initComponent:function(){
+		this.sm=new Ext.grid.CheckboxSelectionModel({scope:this});
+    	this.colModel=new Ext.grid.ColumnModel([
+			    new Ext.grid.RowNumberer(),this.sm,{dataIndex:'id',hidden:true},
+			    {
+					header:'评估计划名称',
+			    	dataIndex:'projectGroupCode',		    	
+			    	width:80,
+			    	sortable:true
+				},{
+					header:'评估年度',
+			    	dataIndex:'projectGroupName',		    	
+			    	width:130,
+			    	sortable:true
+				},{
+					header:'计划制定日期',
+			    	dataIndex:'iepWarehouse',		    	
+			    	width:130,
+			    	sortable:true
+			    
+				},{
+					header:'计划通过日期',
+			    	dataIndex:'status',		    	
+			    	width:130
+				},{
+					header:'开始日期',
+			    	dataIndex:'status',		    	
+			    	width:130
+				},{
+					header:'截止日期',
+			    	dataIndex:'status',		    	
+			    	width:130
+				},{
+					header:'状态'
+				}
+		]);
+		
+		this.store=new Ext.data.JsonStore({
+			url : "${requsturl}",//update
+			root : "data",
+			method : "post",
+			totalProperty : "totalCount",
+			fields : []//update
+	    });
+	    
+		this.tbar=[
+			{text:'新增',handler:this.addData,scope:this,iconCls:'xy-add'},
+			{text:'编辑',handler:this.editData,scope:this,iconCls:'xy-edit'},
+			{text:'删除',handler:this.delData,scope:this,iconCls:'xy-delete'},
+			{text:'浏览',handler:this.quyData,scope:this,iconCls:'xy-view-select'}
+		];
+		
+		this.store.load({params:{start:0,limit:20}});
+		${package}.grid.${className}Grid.superclass.initComponent.call(this);
+	},addData:function(){//新增
+		//TODO
+	},editData:function(){//编辑
+		//TODO
+	},delData:function(){//删除
+		var selections=this.selModel.getSelections();
+		var record=this.getSelectionModel().getSelected();
+		if(selections.length>0){
+			//TODO
+		}else{
+			Ext.Msg.alert('提示','请选中记录');
+		}
+	},quyData:function(){//查看
+		//TODO
+	}
+});
+
+Ext.reg("${package}.grid.${className}Grid",${package}.grid.${className}Grid);

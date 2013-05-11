@@ -1,0 +1,58 @@
+/**
+*${desc}
+*@author tdu
+*@time ${.now}
+**/
+<#--允许为空 不需要显示-->
+<#macro blank val><#if val='true' >,allowBlank:false</#if></#macro>
+<#macro radio type name><#if type='radiogroup'>,items:[{boxLabel:'是',inputValue:'1',name:'${name}',checked:true},{boxLabel:'否',inputValue:'0',name:'${name}'}]</#if></#macro>
+<#macro toCol val><#if val='1'>'1'<#else>'.5'</#if></#macro>
+
+
+<#--对于两列布局的(复杂的)模板文件-->
+Ext.ns("${package}.form");
+
+
+${package}.form.${className} = Ext.extend(Ext.form.FormPanel, {
+	frame : true,
+	layout:'form',
+	labelWidth :100,
+	labelAlign : "left",
+	initComponent : function() {
+		this.items=[
+		<#list cols as colist>
+			<#assign cols1=colist[0]>
+			<#assign cols2=colist[1]>
+			<#assign flg='0'><#--用于控制变量-->
+			<#list cols1 as col>
+				<#if (col.type='textarea')><#assign flg='1'></#if>
+				<#if (col.fullRow?string='true')><#assign flg='1'></#if>
+			</#list>
+			{layout:'column',items:[
+				{columnWidth:<@toCol val='${flg}'/>,
+					layout:'form',
+					labelWidth :${lablewin},
+					labelAlign : "left",
+					defaults:{width:120},
+					items:[
+						<#list cols1 as col>
+						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>}<#if (col_index+1 < cols1?size)>,</#if>
+						</#list>
+				]}<#if flg='0'>,
+				{columnWidth:'.5',
+					layout:'form',
+					labelAlign : "left",
+					labelWidth :${lablewin},
+					defaults:{width:120},
+					items:[
+						<#list cols2 as col>
+						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>}<#if (col_index+1 < cols2?size)>,</#if>
+						</#list>
+				]}</#if>
+			]}<#if (colist_index+1 < cols?size)>,</#if>
+		</#list>
+		];
+		${package}.form.${className}.superclass.initComponent.call(this);
+	}
+});
+Ext.reg("${package}.form.${className}",${package}.form.${className});

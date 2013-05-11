@@ -1,0 +1,58 @@
+/**
+*${desc}
+*@author tdu
+*@time ${.now}
+**/
+<#--允许为空 不需要显示-->
+<#macro blank val><#if val='true' >,allowBlank:false</#if></#macro>
+<#macro radio type name><#if type='radiogroup'>,items:[{boxLabel:'是',inputValue:'1',name:'${name}',checked:true},{boxLabel:'否',inputValue:'0',name:'${name}'}]</#if></#macro>
+
+<#--对于两列布局的模板文件-->
+Ext.ns("${package}.form");
+${package}.form.${className} = Ext.extend(Ext.form.FormPanel, {
+	frame : true,
+	layout:'form',
+	defaultType : "textfield",
+	labelWidth :100,
+	labelAlign : "left",
+	defaults:{
+		border:false,
+		bodyStyle:'padding:0px'
+	},
+	initComponent : function() {
+		this.items=[
+			{layout:'column',xtype:'fieldset',title:'评分计划制定',items:[
+				{columnWidth:'.5',
+					layout:'form',
+					labelWidth :${lablewin},
+					labelAlign : "left",
+					defaults:{width:120},
+					items:[
+						<#list cols1 as col>
+						<#if (col_index+1 < cols1?size)>
+						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>},
+						<#else>
+						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>}
+						</#if>
+						</#list>
+				]},
+				{columnWidth:'.5',
+					layout:'form',
+					labelAlign : "left",
+					labelWidth :${lablewin},
+					defaults:{width:120},
+					items:[
+						<#list cols2 as col>
+						<#if (col_index+1 < cols2?size)>
+						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>},
+						<#else>
+						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>}
+						</#if>
+						</#list>
+				]}
+			]}
+		];
+		${package}.form.${className}.superclass.initComponent.call(this);
+	}
+});
+Ext.reg("${package}.form.${className}",${package}.form.${className});

@@ -1,0 +1,507 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>细览页面</TITLE>
+<META content=text/html;charset=gb2312 http-equiv=Content-Type>
+<META name=ROBOTS content=NONE>
+<META content=no-cache http-equiv=Pragma>
+<META content=no-cache,must-revalidate http-equiv=cache-control>
+<META content=wed,26feb199708:21:57gmt http-equiv=expires>
+<SCRIPT src="trs_tmp24_31386_files/cookie.js"></SCRIPT>
+
+<style type="text/css">
+<!--
+.style1 {
+	color: #0066cc;
+	font-weight: bold;
+}
+.style4 {color: #0066cc; font-size: 14px; }
+TD {
+	FONT-FAMILY: 宋体; FONT-SIZE: 9pt
+}
+-->
+</style>
+<SCRIPT language=javascript>
+var base="更新法规库";
+var curchannel="18";
+var version="PERSONAL";
+var recnum=156;
+var currecord="1";
+var delbkmsg='删除书签成功,重新检索书签刷新';
+var addbkmsg='设置书签成功';
+var cpbasename="文书";
+var gjbasename="条约";
+var fgid="A5111012012109565";
+var sflag="";
+
+var url_gotodetail="trsbro://detail?record=1&ChannelID=18&randno=22519&resultid=3";
+var url_prevrec="javascript:";
+var url_nextrec="trsbro://detail?record=2&ChannelID=18&back=-1&randno=6004&templet=&resultid=3";
+var url_firsthit="javascript:";
+var url_GotoPrintView="trsbro://detail?record=1&ChannelID=18&randno=30507&resultid=3";
+var pos=url_GotoPrintView.indexOf('#');
+if(pos>0)url_GotoPrintView=url_GotoPrintView.substr(0,pos);
+url_GotoPrintView+="&templet=print.jsp&forprint=1";
+
+//var url_gotodownload="trsbro://download?record=1&ChannelID=18&randno=13679&templet=&resultid=3";
+var url_gotodownload="trsbro://download?record=1";
+url_gotodownload=url_gotodownload+"&ChannelID="+curchannel;
+url_gotodownload=url_gotodownload+"&randno="+Math.random();
+url_gotodownload=url_gotodownload+"&presearchword=faguifenleihao="+fgid;
+url_gotodownload=url_gotodownload+"&filename="+currecord+".doc";
+
+
+
+var str0="<font color=red>【文　　号】</font><BR>";
+var str1="有效";
+var str2="<font color=red>【颁布单位】</font>山西省人民代表大会常务委员会<BR>";
+var str3="<font color=red>【颁布日期】</font>2012.03.28<BR>";
+var str4="<font color=red>【实施日期】</font>2012.06.01<BR>";
+var str5="<font color=red>【失效日期】</font><BR>";
+var str55="";
+var str6="<font color=red>【分 类 号】</font>A5111012012109565<BR>";
+var str7="<font color=red>【内容分类】</font>其他<BR>";
+var str9="<font color=red>【签订地点】</font><BR>";
+var str10="<font color=red>【签订日期】</font><BR>";
+var str11="<font color=red>【生效日期】</font><BR>";
+var str12="<font color=red>【有效期限】</font><BR>";
+var str13="有效";
+var str14="<font color=red>【审判程序】</font><BR>";
+var str15="<font color=red>【裁判法院】</font><BR>";
+var str16="<font color=red>【文书制作日期】</font><BR>";
+var str17="<font color=red>【裁判文书类型】</font><BR>";
+
+if(str13!=""){
+	str1="<font color=red>【时 效 性】</font>"+str13+"<BR>";
+}
+else{
+	str1="<font color=red>【时 效 性】</font>"+str1+"<BR>";
+}
+if(str55!=""){
+	if(str55.length==8)str55=str55.substr(0,4)+"."+str55.substr(4,2)+"."+str55.substr(6,2)
+	str5="<font color=red>【失效日期】</font>"+str55+"<BR>";
+}
+</SCRIPT>
+
+<SCRIPT src="trs_tmp24_31386_files/detail.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+	InitStlye();
+
+	function outdetailbar(url_gotodetail, currecord, recnum) {
+		document.write("<table width=100% id=tb2>");
+		document.write("<tr><td colspan=2 align=center>");
+
+		if (window.name == "main2" && window.parent.name != "main2") {
+			document.write("<a href=");
+			document.write(url_gotodetail);
+			document.write(" target=_blank>弹出窗口</a>");
+		} else {
+			if (version == "PERSONAL")
+				document.write("<a href=trsbro://close>关闭窗口</a>");
+			else
+				document.write("<a href=javascript:window.close()>关闭窗口</a>");
+		}
+
+		if (recnum > 1) {
+			document.write("&nbsp;&nbsp;<a class='head' id=prevrec>上篇</a>");
+			if (url_prevrec != "javascript:")
+				getElmById(document, "prevrec").href = url_prevrec;
+		}
+
+		if (recnum > 1) {
+			document.write("&nbsp;<a class='head' id=nextrec>下篇</a>");
+			if (url_nextrec != "javascript:")
+				getElmById(document, "nextrec").href = url_nextrec;
+		}
+
+		if (url_firsthit != "javascript:") {
+			document.write("&nbsp;<A CLASS='head' id=firsthit>关键词</A>");
+			getElmById(document, "firsthit").href = url_firsthit;
+		}
+		if (recnum > 1) {
+			document.write("&nbsp;当前法规:<font color=red>");
+			document.write(currecord);
+			document.write("/");
+			document.write(recnum);
+			document.write("</font>");
+		}
+		if (fgid != "") {
+			document.write(" <a class=\"head\" id=bkmk_s>");
+			if (curchannel == "2") {
+				document.write("删除书签");
+			} else {
+				document.write("设置书签");
+			}
+			document.write("</a>");
+
+			var url_bkmk = "javascript:dobkmk(fgid,curchannel,addbkmsg,delbkmsg);";
+			getElmById(document, "bkmk_s").href = url_bkmk;
+		}
+
+		document.write("&nbsp;<a class=head id=printer target=_blank>打印</a>");
+		getElmById(document, "printer").href = url_GotoPrintView;
+
+		document.write("&nbsp;<a class=head id=downloadrec>下载正文</a>");
+		url_gotodownload2 = url_gotodownload;
+		url_gotodownload2 += "&templet=";
+		if (base.indexOf("文书") >= 0)
+			url_gotodownload2 += "save3.jsp";
+		else if (base.indexOf("条约") >= 0)
+			url_gotodownload2 += "save2.jsp";
+		else
+			url_gotodownload2 += "save.jsp";
+		url_gotodownload2 += "&suffix=doc";
+
+		var downloadurl = "javascript:downloadfunc(\"" + url_gotodownload2
+				+ "\")";
+		getElmById(document, "downloadrec").href = downloadurl;
+
+		document
+				.write("&nbsp;字体[<a href=\"javascript:font1();\">小</a> <a href=\"javascript:font2();\">中</a> <a href=\"javascript:font3();\">大</a>]");
+
+		if (sflag == "EN") {
+			document.write(" <a href=");
+			var gotoenglish = "trsbro://detail?channelid=4&presearchword=faguifenleihao="
+					+ fgid + "E" + "&record=1&templet=english.jsp";
+			document.write(gotoenglish);
+			document.write(" target=_blank>ENGLISH</a>");
+		}
+
+		document.write("<br><hr>");
+		document.write("</td></tr>");
+		document.write("</table>");
+	}
+
+	function outdetailbar2(url_gotodetail, currecord, recnum) {
+
+		document.write("<table width=100% id=tb2_2>");
+		document.write("<tr><td colspan=2 align=center><hr>");
+
+		if (window.name == "main2" && window.parent.name != "main2") {
+			document.write("<a href=");
+			document.write(url_gotodetail);
+			document.write(" target=_blank>弹出窗口</a>");
+		} else {
+			if (version == "PERSONAL")
+				document.write("<a href=trsbro://close>关闭窗口</a>");
+			else
+				document.write("<a href=javascript:window.close()>关闭窗口</a>");
+		}
+
+		if (recnum > 1) {
+			document.write("&nbsp;&nbsp;<a class='head' id=prevrec2>上篇</a>");
+			if (url_prevrec != "javascript:")
+				getElmById(document, "prevrec2").href = url_prevrec;
+		}
+
+		if (recnum > 1) {
+			document.write("&nbsp;<a class='head' id=nextrec2>下篇</a>");
+			if (url_nextrec != "javascript:")
+				getElmById(document, "nextrec2").href = url_nextrec;
+		}
+
+		if (url_firsthit != "javascript:") {
+			document.write("&nbsp;<A CLASS='head' id=firsthit2>关键词</A>");
+			getElmById(document, "firsthit2").href = url_firsthit;
+		}
+		if (recnum > 1) {
+			document.write("&nbsp;当前法规:<font color=red>");
+			document.write(currecord);
+			document.write("/");
+			document.write(recnum);
+			document.write("</font>");
+		}
+		if (fgid != "") {
+			document.write(" <a class=\"head\" id=bkmk_s2>");
+			if (curchannel == "2") {
+				document.write("删除书签");
+			} else {
+				document.write("设置书签");
+			}
+			document.write("</a>");
+
+			var url_bkmk = "javascript:dobkmk(fgid,curchannel,addbkmsg,delbkmsg);";
+			getElmById(document, "bkmk_s2").href = url_bkmk;
+		}
+
+		document.write("&nbsp;<a class=head id=printer2 target=_blank>打印</a>");
+		getElmById(document, "printer2").href = url_GotoPrintView;
+
+		document.write("&nbsp;<a class=head id=downloadrec2>下载正文</a>");
+		url_gotodownload2 = url_gotodownload;
+		url_gotodownload2 += "&templet=";
+		if (base.indexOf("文书") >= 0)
+			url_gotodownload2 += "save3.jsp";
+		else if (base.indexOf("条约") >= 0)
+			url_gotodownload2 += "save2.jsp";
+		else
+			url_gotodownload2 += "save.jsp";
+		url_gotodownload2 += "&suffix=doc";
+
+		var downloadurl = "javascript:downloadfunc(\"" + url_gotodownload2
+				+ "\")";
+		getElmById(document, "downloadrec2").href = downloadurl;
+
+		document
+				.write("&nbsp;字体[<a href=\"javascript:font1();\">小</a> <a href=\"javascript:font2();\">中</a> <a href=\"javascript:font3();\">大</a>]");
+
+		if (sflag == "EN") {
+			document.write(" <a href=");
+			var gotoenglish = "trsbro://detail?channelid=4&presearchword=faguifenleihao="
+					+ fgid + "E" + "&record=1&templet=english.jsp";
+			document.write(gotoenglish);
+			document.write(" target=_blank>ENGLISH</a>");
+		}
+
+		document.write("</td></tr>");
+		document.write("</table>");
+
+	}
+</SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8112.16470">
+</HEAD>
+<BODY onload=onbodyload() background=trs_tmp24_31386_files/d_bk.JPG
+	topMargin=5 bgColor=#fffafa>
+	<SCRIPT language=javascript>
+		outdetailbar(url_gotodetail, currecord, recnum);
+		outrechead(str0, str1, str2, str3, str4, str5, str6, str7, fgid, str9,
+				str10, str11, str12, str13, str14, str15, str16, str17, base,
+				cpbasename, gjbasename);
+		//for biaoti
+		document.write("<center><table width=70% id=tb4>");
+		document.write("<tr>");
+		document.write("<td align=center>");
+		document.write("<B><font color=#800000>");
+	</SCRIPT>
+	山西省突发事件应对条例
+	<SCRIPT language=javascript>
+		document.write("</font></B><BR>");
+	</SCRIPT>
+	（２０１２年３月２８日山西省第十一届人民代表大会常务委员会第二十八次会议通过，自２０１２年６月１日起施行。）
+	<SCRIPT language=javascript>
+		document.write("</td>");
+		document.write("</tr>");
+		document.write("</table></center>");//for biaoti
+		document.write("<font id=tb style=\"font-size:9pt\">");
+	</SCRIPT>
+	<BR>
+	<H3>第一章 &nbsp;总则</H3>
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第一条 &nbsp;根据《
+	<A href="trsbro://golaw/?dbnm=gjfg&amp;flid=111605200701" target=_blank>中华人民共和国突发事件应对法</A>》等有关法律、法规，结合本省实际，制定本条例。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二条
+	&nbsp;本条例适用于本省行政区域内突发事件的预防与应急准备、信息报告与监测预警、应急处置与救援、事后恢复与重建等应对活动。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三条
+	&nbsp;本条例所称突发事件，是指突然发生，造成或者可能造成严重社会危害，需要采取应急处置措施予以应对的自然灾害、事故灾难、公共卫生事件和社会安全事件。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;突发事件的等级和分级标准按照国家有关规定执行。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四条
+	&nbsp;突发事件应对工作实行行政领导负责制，纳入政府工作年度目标责任制考核。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第五条
+	&nbsp;县级以上人民政府负责本行政区域内的突发事件应对工作，应当将突发事件应对体系建设规划纳入国民经济和社会发展规划，并将突发事件应对工作所需经费列入财政预算。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;县级以上人民政府应急管理办事机构负责本行政区域内突发事件应对的日常工作，主要履行值守应急、信息汇总、综合协调、督查指导等职责。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;县级以上人民政府相关部门在其职责范围内做好突发事件应对工作。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第六条
+	&nbsp;县级以上人民政府应当根据需要，设立应急指挥部，负责组织、协调、指挥突发事件应对工作。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第七条
+	&nbsp;乡（镇）人民政府、街道办事处应当确定专人负责突发事件应对日常工作。居民委员会、村民委员会应当配合人民政府做好突发事件应对工作。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第八条
+	&nbsp;工会、共青团、妇联和红十字会等社会组织应当动员、组织社会力量开展应急服务，协助人民政府做好突发事件应对工作。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第九条
+	&nbsp;各级人民政府及相关部门应当对公众进行突发事件应对知识的宣传、教育，并定期组织应急演练，提高公众应对突发事件的意识和能力。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;新闻媒体应当开展应对突发事件知识的公益宣传。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十条
+	&nbsp;县级以上人民政府及其相关部门应当对在突发事件应对工作中做出贡献的单位和个人给予表彰和奖励；对在突发事件应对工作中伤亡的人员，按照有关规定给予抚恤。
+	<BR>
+	<H3>第二章 &nbsp;预防与应急准备</H3>
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十一条
+	&nbsp;各级人民政府应当制定突发事件总体应急预案，组织制定专项应急预案。街道办事处、县级以上人民政府相关部门应当根据职责制定应急预案。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十二条 &nbsp;下列单位应当制定突发事件应急预案：
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（一）煤矿，非煤矿山，冶炼、化工、制药企业，建筑施工单位；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（二）易燃易爆物品、危险化学品、放射性物品、病原微生物等危险物品的生产、经营、储运、使用单位；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（三）供（排）水、发（供）电、供热、供气、供油、通信、网络、广播电视、防洪等公共设施的经营、管理单位；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（四）学校、幼儿园、图书馆、医院、金融证券交易场所、车站、机场、港口、码头、体育场（馆）、会展中心、商（市）场、影剧院、休闲娱乐场所、宾馆、饭店、公园、旅游景区（点）等公共场所的经营、管理单位；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（五）交通运输经营、管理单位；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（六）大型群众性活动的主办单位；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（七）其他应当制定应急预案的单位。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十三条 &nbsp;制定应急预案应当符合《
+	<A href="trsbro://golaw/?dbnm=gjfg&amp;flid=111605200701" target=_blank>中华人民共和国突发事件应对法</A>》
+	<A
+		href="trsbro://golaw/?dbnm=gjfg&amp;flid=111605200701&amp;lknm=%b5%da%ca%ae%b0%cb%cc%f5#law_firsthit"
+		target=_blank>第十八条</A>的规定。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;应急预案实行批准、备案制度，按照国家和本省有关规定及时向社会公布，并适时修订。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十四条
+	&nbsp;县级以上人民政府及有关部门和单位、乡（镇）人民政府、街道办事处、专业机构和专业监测网点，应当实行二十四小时值班制度。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十五条
+	&nbsp;县级以上人民政府应当建立危险源、危险区域的数据信息库和管理制度，采取安全防范措施，实行分类分级管理。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十六条
+	&nbsp;县（市、区）人民政府及其相关部门、乡（镇）人民政府、街道办事处、居民委员会、村民委员会应当建立健全突发事件应对决策风险评估机制、矛盾纠纷调解机制，及时排查、消除突发事件隐患，有效处理可能引发社会安全事件的矛盾纠纷。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十七条
+	&nbsp;设区的市和县（市、区）城乡规划应当符合应对突发事件的要求，统筹安排应对突发事件所必需的设备和基础设施建设，合理确定应急避难场所。已有的城乡规划不符合应对突发事件需要的，应当依照法定程序进行修改；已有的建筑物、构筑物和其他设施不符合应对突发事件需要的，设区的市和县（市、区）人民政府应当采取补救措施，必要时制定改造计划并组织实施；新建的广场、体育场、公园等场所应当按照国家有关应急避难场所的规定规划建设。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;应急避难场所的所有权人或者管理使用单位，应当履行维护和管理应急避难场所的职责，保证其正常使用。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;应急避难场所应当设置明显标志，并向社会公布。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十八条
+	&nbsp;县级以上人民政府应当根据处置突发公共卫生事件的需要，建立或者指定诊疗、隔离场所。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第十九条
+	&nbsp;第十二条规定的单位应当依法采取突发事件预防措施，建立健全安全管理制度，定期开展隐患排查和风险评估，防止突发事件的发生。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十条
+	&nbsp;机关、团体、企业、事业单位应当建立应急管理培训制度，组织本单位人员进行突发事件应对相关法律、法规以及应急知识等方面的教育培训，定期开展应急演练，提高处置突发事件的能力。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;煤矿，非煤矿山，冶炼、化工、制药企业，建筑施工单位和易燃易爆物品、危险化学品、放射性物品、病原微生物等危险物品的生产、经营、储运、使用单位的职工，应当熟练掌握安全操作规程和应对突发事件的技能。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十一条 &nbsp;县级以上人民政府及有关部门和单位应当按照《
+	<A href="trsbro://golaw/?dbnm=gjfg&amp;flid=111605200701" target=_blank>中华人民共和国突发事件应对法</A>》
+	<A
+		href="trsbro://golaw/?dbnm=gjfg&amp;flid=111605200701&amp;lknm=%b5%da%b6%fe%ca%ae%c1%f9%cc%f5#law_firsthit"
+		target=_blank>第二十六条</A>、
+	<A
+		href="trsbro://golaw/?dbnm=gjfg&amp;flid=111605200701&amp;lknm=%b5%da%b6%fe%ca%ae%c6%df%cc%f5#law_firsthit"
+		target=_blank>第二十七条</A>的规定组建应急救援队伍，配备相应的应急救援装备，并为专业应急救援人员购买人身意外伤害保险，减少应急救援人员的人身风险。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十二条
+	&nbsp;县级以上卫生行政主管部门应当组织建立心理危机干预的专兼职队伍，明确突发事件心理危机干预职责，并组织开展相关业务培训。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十三条
+	&nbsp;县级以上人民政府应当建立健全应急物资储备保障制度，完善重要应急物资的监管、生产、储备、调拨和紧急配送体系，统筹各类应急物资日常准备和应急状态时的生产、调配、供应，并建立省内跨区域的应急物资调剂供应渠道。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;县级以上人民政府有关部门应当按照各自职责，组织、协调应急物资储备工作，建设应急物资储备库，并将应急物资储备情况报同级人民政府应急管理办事机构备案。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;省人民政府或者其相关部门应当建立与其他省、自治区、直辖市的应急物资调剂供应协作机制。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十四条
+	&nbsp;省人民政府及有关部门和单位、设区的市人民政府、县（市、区）人民政府应当建立应急平台，纳入全省应急平台体系，建立统一的突发事件信息报送系统，形成突发事件信息报送快速反应机制和舆情收集、分析机制。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;建立应急平台应当遵守国家和本省规定的有关数据库标准、数据共享、数据库相互兼容和安全管理的制度。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十五条
+	&nbsp;交通运输部门和公安机关交通管理部门应当保证应急处置车辆的线路畅通和优先通行，必要时开辟专用通道；应急处置车辆应当配置规范标志。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十六条
+	&nbsp;通信管理部门应当组织、协调电信运营企业做好应急通信保障工作。无线电管理部门应当提供应急专用频率的电波监测和干扰排查等技术保障。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十七条
+	&nbsp;县级以上人民政府应急指挥机构根据突发事件应对工作需要，可以要求有关通信服务单位提供突发事件求助人的相关信息，通信服务单位应当予以配合。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十八条
+	&nbsp;县级以上人民政府应当建立健全与当地同级军事机关，驻当地中国人民解放军、中国人民武装警察部队，国家、省驻当地有关单位和周边行政区域的应急联动机制，建立信息会商制度，提高应急快速反应能力。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第二十九条
+	&nbsp;县级以上人民政府、专项应急指挥机构应当成立应急管理专家组，建立健全应急决策咨询制度。
+	<BR>
+	<H3>第三章 &nbsp;信息报告与监测预警</H3>
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十条
+	&nbsp;各级人民政府应当及时向上一级人民政府报送突发事件信息，有关部门和单位应当及时向所在地的县（市、区）人民政府和上一级主管部门报送突发事件信息；必要时可以越级报告。较大以上和暂时无法判明等级的突发事件发生后，县（市、区）人民政府应当及时报告，设区的市人民政府、省人民政府有关部门和单位应当在两小时内报告省人民政府。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;报告突发事件信息，应当及时、客观、真实，不得迟报、谎报、瞒报、漏报。首次报告时可以先简要报告，并做好续报，直至应急处置工作结束。报告内容包括时间、地点、单位名称、信息来源、事件类别、伤亡或者经济损失的初步评估、影响范围、事件发展态势及处置情况。涉及国家秘密的，应当遵守国家有关保密规定。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十一条
+	&nbsp;县级以上人民政府及其有关部门，应当根据各自职责和业务范围，合理划分监测区域，建立健全专业监测网点，完善应急监测预警体系。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;有关专业监测机构应当按照应急需要加强技术保障建设，确保监测数据信息完整可靠。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十二条
+	&nbsp;县级以上人民政府应当在本行政区域内建立预警信息发布平台，发布预警信息。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;三、四级预警信息由设区的市、县（市、区）人民政府或者其授权的部门发布。一、二级预警信息，由省人民政府或者其授权的省有关部门在突发事件可能影响的区域内发布。省人民政府授权的部门发布预警信息的，应当同时报省人民政府备案。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;设区的市、县（市、区）发布的三、四级预警信息，有上升为二级以上趋势的，应当及时报告省人民政府或者其授权的省有关部门，并由其按规定启动预警信息发布程序。必要时，省人民政府或者其授权的省有关部门可以发布各级别的预警信息。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十三条
+	&nbsp;县级以上人民政府及其有关部门应当建立与通信、广播电视、报社、网站等单位的预警信息传输通道，完善气象、洪涝、干旱、地震、地质灾害等监测预警信息系统，加强偏远、高风险地区的监测预警信息发布设施建设。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;预警信息可以通过广播、电视、报纸、网站、手机短信、宣传车、电子显示屏等方式发布，必要时组织人员逐户通知。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十四条
+	&nbsp;发布突发事件预警信息的人民政府或者有关部门应当按照规定适时调整预警级别并重新发布。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;有事实证明突发事件不可能发生或者危险已经解除的，发布预警信息的人民政府或者有关部门应当立即解除警报、终止预警期、解除已经采取的有关措施。
+	<BR>
+	<H3>第四章 &nbsp;应急处置与救援</H3>
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十五条 &nbsp;突发事件发生后，县级以上人民政府除按照《
+	<A href="trsbro://golaw/?dbnm=gjfg&amp;flid=111605200701" target=_blank>中华人民共和国突发事件应对法</A>》及有关法律、法规的规定采取应急处置措施外，还应当按照下列规定指挥处置：
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（一）特别重大、重大的突发事件，由省人民政府应急指挥部负责统一指挥处置；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（二）较大突发事件，由设区的市人民政府应急指挥部负责统一指挥处置；跨设区的市的，由省人民政府应急指挥部负责统一指挥处置；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（三）一般突发事件，发生在县（市、区）行政区域内的，由县（市、区）人民政府应急指挥部负责统一指挥处置；跨县（市、区）的，由设区的市人民政府应急指挥部负责统一指挥处置。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;一般、较大突发事件可能演化为重大、特别重大突发事件，或者本级人民政府认为难以应对的，应当及时报告上一级人民政府，由上一级人民政府统一指挥处置。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十六条
+	&nbsp;突发事件发生后，事发地县（市、区）人民政府应当迅速先行采取应急救援和处置措施，控制事态发展或者灾情蔓延。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十七条
+	&nbsp;省人民政府应当建立和完善全省应急交通运输综合协调机制。交通运输、铁路、航空部门应当优先运送受到突发事件危害的人员和救援人员、救援物资、救援设备。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十八条
+	&nbsp;县级以上人民政府依法实施应急征用，应当向被征用人送达突发事件应对征用令。送达突发事件应对征用令不得少于两人。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;突发事件应对征用令由县级以上人民政府主要负责人签发，征用令应当明确征用人和被征用人的名称、地址、联系方式，执行人员姓名，征用用途，征用时间以及征用财产的名称、数量、型号等内容。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;实施征用的人民政府应当及时返还被征用财产。财产被征用或者征用后毁损、灭失的，实施征用的人民政府应当按照国家和本省有关规定给予补偿。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第三十九条
+	&nbsp;县级以上人民政府应当根据有关法律、法规，建立健全突发事件新闻发布制度，准确、及时向社会发布有关突发事件事态发展和应对工作信息，并告知社会公众应当注意的事项和相关知识。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;任何单位和个人不得编造、传播有关突发事件事态发展或者应对工作的虚假信息。
+	<BR>
+	<H3>第五章 &nbsp;事后恢复与重建</H3>
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十条
+	&nbsp;县级以上人民政府应当组织对突发事件的起因、性质、过程、影响范围、造成的损失和应急处置等情况进行调查评估，并向上一级人民政府报告。调查评估结果应当向社会公布。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;突发事件应急处置工作结束后，应当向本级人民代表大会常务委员会作出专项工作报告。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十一条
+	&nbsp;县级以上人民政府应当加强对恢复与重建工作的领导，按照短期恢复与长远发展并重的原则，科学制定并实施恢复与重建规划。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;县级以上人民政府应当加强对恢复与重建资金和物资的监督管理，保证其规范使用。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十二条
+	&nbsp;县级以上人民政府因应对突发事件采取措施造成公民、法人和其他组织财产损失的，应当按照国家规定给予补偿；国家没有规定的，省人民政府应当制定补偿办法。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十三条
+	&nbsp;突发事件发生地受灾人员需要过渡性安置的，县级以上人民政府应当根据实际情况，做好安置工作。
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;过渡性安置点应当设置在交通便利、方便受灾人员恢复生产和生活的区域，并采取相应的防灾、防疫措施，建设必要的配套基础设施和公共服务设施，保障受灾人员的安全和基本生活需要。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十四条
+	&nbsp;县级以上人民政府应当督促保险监督管理机构和保险机构及时做好有关突发事件的保险理赔工作。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十五条
+	&nbsp;县级以上人民政府及其相关部门应当建立突发事件应对档案管理制度，对应对工作的原始记录等有关资料进行收集、整理、存档，并建立突发事件应对案例库。
+	<BR>
+	<H3>第六章 &nbsp;法律责任</H3>
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十六条
+	&nbsp;在突发事件应对工作中，县级以上人民政府及有关部门和单位违反本条例规定，有下列情形之一的，对直接负责的主管人员和其他直接责任人员依法给予处分：
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（一）未制定应急预案的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（二）未实行二十四小时值班的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（三）未建立危险源、危险区域管理制度的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（四）未对不符合应对突发事件需要的城乡规划依照法定程序进行修改；未对不符合突发事件应对需要的建筑物、构筑物和其他设施、设备采取必要的补救措施、制定改造方案；未按照国家有关应急避难场所的规定规划建设的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（五）未履行维护和管理应急避难场所的职责，保证其正常使用的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（六）未设置应急避难场所标志，未向社会公布应急避难场所的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（七）未组织应急管理培训的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（八）未依法组建应急救援队伍的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（九）未遵守应急储备物资有关规定的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（十）未按照规定报告突发事件信息的；
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;（十一）违反本条例规定的其他情形。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十七条
+	&nbsp;违反本条例规定，法律、行政法规已经规定法律责任的，从其规定。
+	<BR>
+	<H3>第七章 &nbsp;附则</H3>
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;第四十八条 &nbsp;本条例自２０１２年６月１日起施行。
+	<BR>
+	<BR>&nbsp;&nbsp;&nbsp;&nbsp;*** &nbsp;&nbsp;国家信息中心【国家法规数据库】提供，仅供参考
+	&nbsp;&nbsp;***
+	<SCRIPT language=javascript>
+		document.write("</font>");//for tb
+		outdetailbar2(url_gotodetail, currecord, recnum);
+	</SCRIPT>
+</BODY>
+</HTML>

@@ -1,0 +1,79 @@
+/**
+*${desc}
+*@author tdu
+*@time ${.now}
+**/
+<#macro render isrender>
+	<#if isrender ?? >
+	renderer:function(val){if(val)return val;},
+	</#if>
+</#macro>
+
+Ext.ns("${package}.grid");
+
+${package}.grid.${className}=Ext.extend(Ext.grid.GridPanel,{
+	autoWidth : true,
+	enableColumnMove : false,
+	enableHdMenu : true,
+	columnLines: true,
+	viewConfig:{
+	  scrollOffset:0,
+	  autoFit: true,
+	  forceFit:false
+	},
+	initComponent:function(){
+		this.sm=new Ext.grid.CheckboxSelectionModel({scope:this});
+    	this.colModel=new Ext.grid.ColumnModel([
+			    new Ext.grid.RowNumberer(),this.sm,{dataIndex:'id',hidden:true
+			    <#list cols as col> 
+			    },{
+			    	<#if (col_index+1 < col?size)>
+					header:'${col.header}',
+			    	dataIndex:'${col.dataIndex}',		    	
+			    	width:150,
+			    	sortable:true
+			    	<#else>
+			    	header:'${col.header}',
+			    	dataIndex:'${col.dataIndex}',		    	
+			    	width:150,
+			    	sortable:true
+			    }	
+			    	</#if>
+			    </#list>
+		]);
+		
+		this.store=new Ext.data.JsonStore({
+			url : "${requesturl}",//update
+			root : "data",
+			method : "post",
+			totalProperty : "totalCount",
+			fields : [<#list cols as col><#if (col_index+1 < col?size)>'${col.dataIndex}',<#else>'${col.dataIndex}'</#if></#list>]
+	    });
+	    
+		this.tbar=[
+			{text:'新增',handler:this.addData,scope:this,iconCls:'xy-add'},
+			{text:'编辑',handler:this.editData,scope:this,iconCls:'xy-edit'},
+			{text:'删除',handler:this.delData,scope:this,iconCls:'xy-delete'},
+			{text:'浏览',handler:this.quyData,scope:this,iconCls:'xy-view-select'}
+		];
+		
+		this.store.load({params:{start:0,limit:20}});
+		${package}.grid.${className}.superclass.initComponent.call(this);
+	},addData:function(){//新增
+		//TODO
+	},editData:function(){//编辑
+		//TODO
+	},delData:function(){//删除
+		var selections=this.selModel.getSelections();
+		var record=this.getSelectionModel().getSelected();
+		if(selections.length>0){
+			//TODO
+		}else{
+			Ext.Msg.alert('提示','请选中记录');
+		}
+	},quyData:function(){//查看
+		//TODO
+	}
+});
+
+Ext.reg("${package}.grid.${className}",${package}.grid.${className});
