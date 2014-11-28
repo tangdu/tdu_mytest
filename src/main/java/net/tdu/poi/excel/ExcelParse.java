@@ -1,5 +1,8 @@
 package net.tdu.poi.excel;
 
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.Test;
 
@@ -26,6 +29,21 @@ public class ExcelParse {
 		try {
 			XSSFWorkbook workbook = new XSSFWorkbook(this.getClass()
 					.getResourceAsStream(FILE_NAME));
+			//得到sheet
+			for(int i=0;i<workbook.getNumberOfSheets();i++){
+				XSSFSheet sheet=workbook.getSheetAt(i);
+				System.out.println(sheet.getPhysicalNumberOfRows());
+				//得到所有物理有效行
+				for(int j=0;j<sheet.getPhysicalNumberOfRows();j++){
+					XSSFRow xssfRow =sheet.getRow(j);
+					System.out.println("---");
+					//得到所有单元格
+					for(int k=0;k<xssfRow.getPhysicalNumberOfCells();k++){
+						XSSFCell xssfCell=xssfRow.getCell(k);
+						System.out.println(xssfCell.getRawValue());
+					}
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

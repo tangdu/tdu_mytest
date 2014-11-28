@@ -14,6 +14,7 @@ public class FormBean {
 	private String type;
 	private boolean allowBlank;
 	private boolean fullRow;// 填充行
+	private String hzType="3";// 并列的组件--》 1-代表后面追加选择按钮 2-代表后面追加（到 结束日期）3-不做处理
 
 	public String getHeader() {
 		return header;
@@ -55,6 +56,14 @@ public class FormBean {
 		this.fullRow = fullRow;
 	}
 
+	public String getHzType() {
+		return hzType;
+	}
+
+	public void setHzType(String hzType) {
+		this.hzType = hzType;
+	}
+
 	public FormBean(String header, String dataIndex) {
 		super();
 		this.header = header;
@@ -78,6 +87,16 @@ public class FormBean {
 		this.type = type;
 		this.allowBlank = allowBlank;
 		this.fullRow = fullRow;
+	}
+
+	public FormBean(String header, String dataIndex, String type,
+			boolean allowBlank, String hzType) {
+		super();
+		this.header = header;
+		this.dataIndex = dataIndex;
+		this.type = type;
+		this.allowBlank = allowBlank;
+		this.hzType = hzType;
 	}
 
 }

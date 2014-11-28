@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <excludeFromCompile>
+      <file url="file://$PROJECT_DIR$/src/main/java/net/tdu/thread/t01/ThreadPool.java" />
+      <file url="file://$PROJECT_DIR$/src/main/java/net/tdu/lucene/test/LuceneMain.java" />
+      <file url="file://$PROJECT_DIR$/src/main/java/net/tdu/ocr/ImageIOHelper.java" />
+      <file url="file://$PROJECT_DIR$/src/main/java/net/tdu/lucene/expand/LuceneUtils.java" />
+    </excludeFromCompile>
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="mytest" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
+

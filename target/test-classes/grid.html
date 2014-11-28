@@ -27,7 +27,7 @@ ${package}.grid.${className}=Ext.extend(Ext.grid.GridPanel,{
 			    new Ext.grid.RowNumberer(),this.sm,{dataIndex:'id',hidden:true
 			    <#list cols as col> 
 			    },{
-			    	<#if (col_index+1 < cols?size)>
+			    	<#if (col_index+1 < col?size)>
 					header:'${col.header}',
 			    	dataIndex:'${col.dataIndex}',		    	
 			    	width:150,
@@ -47,7 +47,7 @@ ${package}.grid.${className}=Ext.extend(Ext.grid.GridPanel,{
 			root : "data",
 			method : "post",
 			totalProperty : "totalCount",
-			fields : [<#list cols as col><#if (col_index+1 < cols?size)>'${col.dataIndex}',<#else>'${col.dataIndex}'</#if></#list>]
+			fields : [<#list cols as col><#if (col_index+1 < col?size)>'${col.dataIndex}',<#else>'${col.dataIndex}'</#if></#list>]
 	    });
 	    
 		this.tbar=[

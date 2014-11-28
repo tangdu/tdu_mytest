@@ -6,6 +6,7 @@
 <#--允许为空 不需要显示-->
 <#macro blank val><#if val='true' >,allowBlank:false</#if></#macro>
 <#macro radio type name><#if type='radiogroup'>,items:[{boxLabel:'是',inputValue:'1',name:'${name}',checked:true},{boxLabel:'否',inputValue:'0',name:'${name}'}]</#if></#macro>
+<#macro hcCom val col><#if val='1'>{layout:'table',items:[{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>},{text:'选择',xtype:'button'}]}<#elseif val='2'>{layout:'table',items:[{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>},{fieldLabel:'到',xtype:'datefield'}]}<#else>{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>}</#if></#macro>
 
 <#--对于两列布局的模板文件-->
 Ext.ns("${package}.form");
@@ -28,12 +29,8 @@ ${package}.form.${className} = Ext.extend(Ext.form.FormPanel, {
 					labelAlign : "left",
 					defaults:{width:120},
 					items:[
-						<#list cols1 as col>
-						<#if (col_index+1 < cols1?size)>
-						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>},
-						<#else>
-						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>}
-						</#if>
+						<#list cols1 as colu>
+						<@hcCom val='${colu.hzType}' col=colu/><#if (colu_index+1 < cols1?size)>,</#if>
 						</#list>
 				]},
 				{columnWidth:'.5',
@@ -42,12 +39,8 @@ ${package}.form.${className} = Ext.extend(Ext.form.FormPanel, {
 					labelWidth :${lablewin},
 					defaults:{width:120},
 					items:[
-						<#list cols2 as col>
-						<#if (col_index+1 < cols2?size)>
-						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>},
-						<#else>
-						{fieldLabel:'${col.header}',name:'${col.dataIndex}',xtype:'${col.type!"textfield"}'<@blank val='${col.allowBlank?string?trim}'/><@radio type='${col.type}' name='${col.dataIndex}'/>}
-						</#if>
+						<#list cols2 as colu>
+						<@hcCom val='${colu.hzType}' col=colu/><#if (colu_index+1 < cols2?size)>,</#if>
 						</#list>
 				]}
 			]}

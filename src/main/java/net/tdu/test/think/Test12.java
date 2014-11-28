@@ -2,6 +2,7 @@
 package net.tdu.test.think;
 
 import java.util.Arrays;
+import java.util.Calendar;
 
 import org.junit.Test;
 
@@ -43,5 +44,12 @@ public class Test12 {
 		char cp[]=minStr(new char []{'c','d','a','b','e','g','f','k','c','b','a'});
 		//得到最小3个字符串，还是最小连续字符串?
 		print(cp);
+		
+		Calendar a1=Calendar.getInstance();
+		a1.set(Calendar.HOUR, 12);
+		Calendar a2=Calendar.getInstance();
+		a2.set(Calendar.HOUR, 13);
+		System.out.println(a1.compareTo(a2));
+		
 	}
 }

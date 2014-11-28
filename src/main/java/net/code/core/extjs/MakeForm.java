@@ -20,7 +20,7 @@ public class MakeForm extends MakeParent {
 		data.put("lablewin", 150);
 
 		List<FormBean> cols1 = new ArrayList<FormBean>();
-		FormBean b1 = new FormBean("损失事件ID", "name1", "textfield", true);
+		FormBean b1 = new FormBean("损失事件ID", "name1", "textfield", true,"1");
 		FormBean b2 = new FormBean("基本情况描述", "name2", "textarea", false);
 		FormBean b3 = new FormBean("发生日期", "name3", "datefield", false);
 		FormBean b4 = new FormBean("事件创建人", "name4", "radiogroup", false);

@@ -15,7 +15,7 @@ public class QQ {
 		try {
 			Document document = Jsoup
 					.connect(
-							"http://user.qzone.qq.com/1160755272/infocenter#!app=4&via=QZ.HashRefresh")
+							"http://user.qzone.qq.com/137338731/infocenter#!app=4&via=QZ.HashRefresh")
 					.userAgent(Constants.USER_AGENT).get();
 			FileUtils.write(new File("1.txt"), document.html());
 		} catch (IOException e) {
